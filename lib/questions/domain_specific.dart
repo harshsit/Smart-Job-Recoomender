@@ -52,7 +52,7 @@ class _HomePageState1 extends State<HomePage1> {
       
   }
 
-   Future<void> updatedommarks(int a,String d) async
+   updatedommarks(int a,String d) async
    {
      int c = a;
 
@@ -93,7 +93,7 @@ int getArraySum(List<dynamic> a,List<dynamic> b,List<dynamic> x, List<dynamic> y
     int total2 = 0;
     int total3 = 0;
     int total4 = 0;
-    int finaltotal = 0;
+    int finaltotal;
     int threshold ;
     String max;
     for(j = 0; j <= (a.length-1); j++)
@@ -119,25 +119,25 @@ int getArraySum(List<dynamic> a,List<dynamic> b,List<dynamic> x, List<dynamic> y
   {
     total1 += d[i];
   }
-  print(total1);
+  print("Second Domain: $total1");
   subdomaintotal.add(total1);
    for(i = 0; i <= (c.length - 1); i++)
   {
     total2 += c[i];
   }
-  print(total2);
+  print("First Domain: $total2");
   subdomaintotal.add(total2);
    for(i = 0; i <= (e.length - 1); i++)
   {
     total3 += e[i];
   }
-  print(total3);
+  print("Third Domain: $total3");
   subdomaintotal.add(total3);
    for(i = 0; i <= (f.length - 1); i++)
   {
     total4 += f[i];
   }
-  print(total4);
+  print("Fourth Domain: $total4");
   subdomaintotal.add(total4);
 
   print(subdomaintotal);
@@ -200,6 +200,7 @@ else
    if(subdomainHighestmax ==  total1)
   {
     level3url1 = 10;
+    
   }
   else if (subdomainHighestmax ==  total2)
   {
@@ -233,52 +234,54 @@ if(subdomainSecondhighestmax ==  total1)
   }
 
 }
+print(subdomainHighestmax);
+print(subdomainSecondhighestmax);
+print("finaltotalmarks: $finaltotal");
+updatedommarks(subdomainHighestmax,level3url1 );
 
+ //print("finaltotalmarks: $finaltotal");
+ //threshold = (20 * 0.70).floor();
 
-
- print("finaltotalmarks: $finaltotal");
- threshold = (20 * 0.70).floor();
-
- if(finaltotal > threshold)
- {
-    if(recdata == '1')
-    {
-       Navigator.push(
-                     context,
-                     MaterialPageRoute(builder: (context) => LevelPage(tok: widget.token,level3_1: level3url1,level3_2: level3url2)),
-     //  ResDomPage(resmarks1: finaltotal,round: "3rd",previousround: "2nd",maximum: recdata,usertokenvar: widget.usertok,),),
-                   );
-    }
-    else
-    {
-        Navigator.push(
-                     context,
-                     MaterialPageRoute(builder: (context) => LevelPage(tok: widget.token,)),
-     //  ResDomPage(resmarks1: finaltotal,round: "3rd",previousround: "2nd",maximum: recdata,usertokenvar: widget.usertok,),),
-                   );
-    }
-   Navigator.push(
-                     context,
-                     MaterialPageRoute(builder: (context) => LevelPage(tok: widget.token,)),
-     //  ResDomPage(resmarks1: finaltotal,round: "3rd",previousround: "2nd",maximum: recdata,usertokenvar: widget.usertok,),),
-                   );
- }
- else
- {  
-    if(recdata == '1')
-    {
-       Navigator.push(
-                     context,
-                     MaterialPageRoute(builder: (context) =>HomePage1(maxdomain: 2.toString(),token: widget.token,)),
-                   );
-    }
-     else{
-        Navigator.push(
-                     context,
-                     MaterialPageRoute(builder: (context) =>HomePage1(maxdomain: 1.toString(),token: widget.token)),
-                   );
-     }
- }
+//  if(finaltotal > 1)
+//  {
+//     if(recdata == '1')
+//     {
+//        Navigator.push(
+//                      context,
+//                      MaterialPageRoute(builder: (context) => LevelPage(tok: widget.token,level3_1: level3url1,level3_2: level3url2)),
+//      //  ResDomPage(resmarks1: finaltotal,round: "3rd",previousround: "2nd",maximum: recdata,usertokenvar: widget.usertok,),),
+//                    );
+//     }
+//     else
+//     {
+//         Navigator.push(
+//                      context,
+//                      MaterialPageRoute(builder: (context) => LevelPage(tok: widget.token,level3_1: level3url1,level3_2: level3url2)),
+//      //  ResDomPage(resmarks1: finaltotal,round: "3rd",previousround: "2nd",maximum: recdata,usertokenvar: widget.usertok,),),
+//                    );
+//     }
+//   //  Navigator.push(
+//   //                    context,
+//   //                    MaterialPageRoute(builder: (context) => LevelPage(tok: widget.token,level3_1: level3url1,level3_2: level3url2)),
+//   //    //  ResDomPage(resmarks1: finaltotal,round: "3rd",previousround: "2nd",maximum: recdata,usertokenvar: widget.usertok,),),
+//   //                  );
+//  }
+//  else
+//  {  
+//     if(recdata == '1')
+//     {
+//        Navigator.push(
+//                      context,
+//                      MaterialPageRoute(builder: (context) =>HomePage1(maxdomain: 2.toString(),token: widget.token,)),
+//                    );
+//     }
+//      else{
+//         Navigator.push(
+//                      context,
+//                      MaterialPageRoute(builder: (context) =>HomePage1(maxdomain: 1.toString(),token: widget.token)),
+//                    );
+//      }
+//  }
   
 
   
@@ -376,7 +379,7 @@ recordmarks(String domaininfo, b, questionid)
          
           FlatButton(
             onPressed: () {
-             getArraySum(mark1, mark2, mark3, mark4, widget.maxdomain);
+             getArraySum(mark1, mark2, mark3, mark4, widget.maxdomain.toString());
             },
             child: Text("Submit", style: TextStyle(color: Colors.white)),
 
@@ -437,9 +440,7 @@ recordmarks(String domaininfo, b, questionid)
       ),
     );
   }
- Container Submit(){
-   Text("SUBMIT");
- }
+ 
 
 
   ListView questionsList(){
@@ -462,8 +463,8 @@ recordmarks(String domaininfo, b, questionid)
                   new Text(data[i].questionText,style: new TextStyle(fontSize: 18.0,),),
                   
                    RadioButtonGroup(
-                   labels:data[i].questionDomain.map((child) => child.answerText).toList(),
-                   onChange: (label, index) =>  recordmarks("${data[i].questionDomain[index].subDomain}","${data[i].questionDomain[index].weightage}","${data[i].id}")
+                   labels: data[i].questionDomain.map((child) => child.answerText).toList(),
+                   onChange: (label, index) => recordmarks(data[i].questionDomain[index].subDomain.toString(),data[i].questionDomain[index].weightage,data[i].id),
      
                    ),
 

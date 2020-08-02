@@ -35,7 +35,7 @@ class _LevelPageState extends State<LevelPage> {
   
 
   Future<void> fetchQuestions()async{
-    var res = await http.get("http://harshraj.pythonanywhere.com/user/level3/${widget.level3_1}/${widget.level3_2}/");
+    var res = await http.get("http://harshraj.pythonanywhere.com/user/level3/${widget.level3_1.toString()}/${widget.level3_2.toString()}/");
     var decRes = jsonDecode(utf8.decode(res.bodyBytes));
     print(decRes);
     _level = Level.fromJson(decRes);
@@ -95,7 +95,7 @@ class _LevelPageState extends State<LevelPage> {
   {                                                                     
     finaltotal += subdomaintotal[i];
   }
- double rating = ((finaltotal/totalquizes) * 5);
+ double rating = ((finaltotal/totalquizes) * 5); 
 
  print(finaltotal);
                                                                       // LOGIC IS WRONG HAVE TO CHANGE LATER

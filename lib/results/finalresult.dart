@@ -11,13 +11,14 @@ import 'package:flutter_app/questions/question_level3_domain_model.dart';
  import 'package:flutter_app/view/dashboard.dart';
  import 'package:flutter_app/main.dart';
 class ResDomPage extends StatefulWidget {
-ResDomPage({Key key, this.resmarks1,this.resmarks2,this.round,this.previousround,this.maximum,this.token}) : super(key: key);
+ResDomPage({Key key, this.resmarks1,this.resmarks2,this.round,this.previousround,this.maximum,this.token,this.rate}) : super(key: key);
 final int resmarks1;
 final int resmarks2;
 final String round;
 final String previousround;
 final String maximum;
 final String token;
+final String rate;
 
 
   _ResDomPageState createState() => _ResDomPageState();
@@ -56,34 +57,34 @@ class _ResDomPageState extends State<ResDomPage> {
        print("Error");
 
   }
-  // Future<void> updateratingmmarks(String b) async
-  // {  
-  //   String rater;
-  //    if(widget.maximum == '1')
-  //    {
-  //      rater = "put-ratingM";
-  //    }
-  //    else{
-  //      rater = "put-ratingT";
-  //    }
-  //   String total = b;  
-  //    Map data = {
-  //     'SubDomain': widget.maximum,
-  //     'Total':total,
-  //      };
-  //      var jsonResponse = null;
-  //      var response = await http.post("http://harshraj.pythonanywhere.com/candidate/${rater}/", body: data,headers: {HttpHeaders.authorizationHeader:"token 4c136b7dbd75a637a1248db3be44c20a5a20a9ee"});
-  //      if(response.statusCode == 200)
-  //      {
-  //        jsonResponse = json.decode(response.body);
-  //     print('Response status: ${response.statusCode}');
-  //     print('Response body: ${response.body}');
-  //     print("Rating Marks Applied");
-  //      }
-  //      else
-  //      print("Error");
+  Future<void> updateratingmmarks(String b) async
+  {  
+    String rater;
+     if(widget.maximum == '1')
+     {
+       rater = "put-ratingM";
+     }
+     else{
+       rater = "put-ratingT";
+     }
+    String total = b;  
+     Map data = {
+      'SubDomain': widget.maximum,
+      'Total':total,
+       };
+       var jsonResponse = null;
+       var response = await http.post("http://harshraj.pythonanywhere.com/candidate/${rater}/", body: data,headers: {HttpHeaders.authorizationHeader:"token 4c136b7dbd75a637a1248db3be44c20a5a20a9ee"});
+       if(response.statusCode == 200)
+       {
+         jsonResponse = json.decode(response.body);
+      print('Response status: ${response.statusCode}');
+      print('Response body: ${response.body}');
+      print("Rating Marks Applied");
+       }
+       else
+       print("Error");
 
-  // }
+  }
  
 
   @override
@@ -102,7 +103,7 @@ class _ResDomPageState extends State<ResDomPage> {
                   tag: 'Clipboard',
                   child:  Image(
                                 image: AssetImage(
-                                  'assets/profile.png',
+                                  'assets/user.png',
                                 ),
                                 height: 100,
                                 width: 100,
@@ -179,9 +180,8 @@ class _ResDomPageState extends State<ResDomPage> {
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.greenAccent,
-                          blurRadius: 5.0,
-                          spreadRadius: 2.0,
+                          color: Colors.deepPurple,
+                         
                           offset: Offset(0.0, 0.0),
                         ),
                       ],

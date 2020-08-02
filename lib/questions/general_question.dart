@@ -30,6 +30,7 @@ class _HomePageState extends State<HomePage> {
   var checkquestansid = new List();
   int j;
   
+  
  
  
   int total1;
@@ -198,9 +199,14 @@ print("Marketting: $total2");
 
 }
  
- answerslist(String c){
-   
-   return Text(c,maxLines: null,);
+ answerslist(List<List<String>> c){
+
+ var d = c;
+ d.toString();
+
+ return d;
+
+  
  }
 
  @override
@@ -314,12 +320,13 @@ print("Marketting: $total2");
 
 
   ListView questionsList(){
-    String _selection = '';
+  
     return ListView.builder(
       itemCount: questionList.length == null ? 0 :  questionList.length,
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       itemBuilder: (context,i,)=>Card(
+        semanticContainer: true,
         margin: EdgeInsets.all(2.0),
         color: Colors.white,
         shadowColor: Colors.blue,
@@ -332,30 +339,27 @@ print("Marketting: $total2");
              children: <Widget>[
                
                new Text(questionList[i].questionText,style: new TextStyle(fontSize: 18.0,),),
-                 RadioButtonGroup(
+                
+            
+                RadioButtonGroup(
                   orientation: GroupedButtonsOrientation.VERTICAL,
 
 
-                  
-                    labels:questionList[i].question.map((child) =>   child.answerText ).toList(),
-                   onChange: (label, index) =>  recordmarks("${questionList[i].question[index].fromDomain}","${questionList[i].question[index].weightage}","${questionList[i].id}"),
-                 
+                   labels:questionList[i].question.map((child) =>  child.answerText).toList(),
+                   onChange: (label, index) {
+                    //  print(label);
+                    //  print(index);
+                    //  print(questionList[i].question[index].fromDomain);
+
+                    recordmarks(questionList[i].question[index].fromDomain.toString(),questionList[i].question[index].weightage,questionList[i].id);
+                   },
+
+                   //onChange: (label, index) => print(labe)//recordmarks("${questionList[i].question[index].fromDomain}","${questionList[i].question[index].weightage}","${questionList[i].id}"),
+                   margin: EdgeInsets.all(2.0),
 
                   // print("${questionList[i].question[index].weightage} : ${questionList[i].id}"),
                    //onSelected: (String selected) =>  AnswerWidget(questionList.length,questionList,questionList[i].question,questionList[i].question[0].answerText,questionList[i].question[0].weightage,0,questionList[i].question[0].fromDomain,mark1,mark2,checkquestansid,total1,widget.usertokvar,overallgentotal)
                    ),
-            
-                // RadioButtonGroup(
-                //   orientation: GroupedButtonsOrientation.VERTICAL,
-
-
-                //    labels:questionList[i].question.map((child) =>  child.answerText).toList(),
-                //    onChange: (label, index) =>  recordmarks("${questionList[i].question[index].fromDomain}","${questionList[i].question[index].weightage}","${questionList[i].id}"),
-                //    margin: EdgeInsets.all(2.0),
-
-                //   // print("${questionList[i].question[index].weightage} : ${questionList[i].id}"),
-                //    //onSelected: (String selected) =>  AnswerWidget(questionList.length,questionList,questionList[i].question,questionList[i].question[0].answerText,questionList[i].question[0].weightage,0,questionList[i].question[0].fromDomain,mark1,mark2,checkquestansid,total1,widget.usertokvar,overallgentotal)
-                //    ),
 
 
              ],
