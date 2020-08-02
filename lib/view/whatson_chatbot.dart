@@ -1,6 +1,6 @@
  import 'package:flutter/material.dart';
  import 'package:watson_assistant_v2/watson_assistant_v2.dart';
- 
+ import 'dart:ffi';
  
  class ChatbotPage extends StatefulWidget {
    ChatbotPage({Key key, this.title}) : super(key: key);

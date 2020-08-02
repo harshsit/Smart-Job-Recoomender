@@ -57,19 +57,25 @@ class _ResDomPageState extends State<ResDomPage> {
        print("Error");
 
   }
+
   Future<void> updateratingmmarks(String b) async
   {  
+
+    print(widget.maximum);
     String rater;
-     if(widget.maximum == '1')
-     {
-       rater = "put-ratingM";
+    String param;
+     if( widget.maximum == '2'   ||  widget.maximum == '3' ||  widget.maximum == '5' ||  widget.maximum == '7' )
+     { 
+       rater = "put-ratingT";
+       param = 'TechRating';
      }
      else{
-       rater = "put-ratingT";
+       rater = "put-ratingM";
+       param = 'MarketRating';
      }
     String total = b;  
      Map data = {
-      'SubDomain': widget.maximum,
+      param : widget.maximum,
       'Total':total,
        };
        var jsonResponse = null;
@@ -98,14 +104,14 @@ class _ResDomPageState extends State<ResDomPage> {
             children: <Widget>[
             
               Expanded(
-                flex: 8,
+                flex: 1,
                 child: Hero(
                   tag: 'Clipboard',
                   child:  Image(
                                 image: AssetImage(
                                   'assets/user.png',
                                 ),
-                                height: 100,
+                              
                                 width: 100,
                               ),
                             
@@ -117,15 +123,34 @@ class _ResDomPageState extends State<ResDomPage> {
                   children: <Widget>[
                     
                     Text(
-                      'You have Completed ${widget.previousround} round',
+                      'You have Completed Sucessfully Completed all rounds',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     ),
                     SizedBox(height: 20),
+                     Text(
+                      'First Round Marks in Technology:  \nSecond Round Marks in Marketing:' ,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black,
+                          fontFamily: 'sanserrif.ttf'),
+                      textAlign: TextAlign.center,
+                    ),
+                    
                     Text(
-                      'You are Recommended for SubDomain ${widget.maximum} Jobs' ,
+                      'Second Round Marks in : \nSecond Round Marks in  :' ,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black,
+                          fontFamily: 'sanserrif.ttf'),
+                      textAlign: TextAlign.center,
+                    ),
+                     Text(
+                      'Third Round Marks in : \nThird Round Marks in  :' ,
                       style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w400,
@@ -135,7 +160,7 @@ class _ResDomPageState extends State<ResDomPage> {
                     ),
                     SizedBox(height: 20),
                     Text(
-                      'Maximum in SubDomain ${widget.maximum}',
+                      'Recommended jobs in  :${widget.maximum}',
                       style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w400,
@@ -151,7 +176,8 @@ class _ResDomPageState extends State<ResDomPage> {
                 flex: 1,
                 child: RaisedButton(
                   onPressed: () {
-                    updatesubdommarks(widget.resmarks1.toString());
+                  //  updatesubdommarks(widget.resmarks1.toString());
+                  updateratingmmarks(widget.rate.toString());
                     
                     Navigator.pushReplacement(
                       context,

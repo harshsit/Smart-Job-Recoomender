@@ -52,12 +52,12 @@ class _HomePageState1 extends State<HomePage1> {
       
   }
 
-   updatedommarks(int a,String d) async
+   updatedommarks(String a, d) async
    {
-     int c = a;
+  
 
 
-     String total = c.toString();
+     String total = a.toString();
      SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
      Map data = {
        'Domain': d,
@@ -93,7 +93,7 @@ int getArraySum(List<dynamic> a,List<dynamic> b,List<dynamic> x, List<dynamic> y
     int total2 = 0;
     int total3 = 0;
     int total4 = 0;
-    int finaltotal;
+    int finaltotal = 0;
     int threshold ;
     String max;
     for(j = 0; j <= (a.length-1); j++)
@@ -147,50 +147,73 @@ int getArraySum(List<dynamic> a,List<dynamic> b,List<dynamic> x, List<dynamic> y
    print(subdomaintotal.first);
    print(subdomaintotal.last);
    subdomainHighestmax = subdomaintotal.last;
+print("Length ${subdomaintotal.length}");
+for(i=0;i<=(subdomaintotal.length - 1);i++)
+{
+  finaltotal += subdomaintotal[i];
+  print(finaltotal);
+}
 
-     for(i = 0; i <= (subdomaintotal.length - 1); i++)
-  {
-    finaltotal += subdomaintotal[i];
-  }
+print("finaltotal $finaltotal");
+//  for(i = 0; i <= (subdomaintotal.length - 1); i++)
+//   {
+//     finaltotal += subdomaintotal[i];
+//   }
 subdomaintotal.remove(subdomainHighestmax);
 
 subdomainSecondhighestmax = subdomaintotal.last;
+
+print("subdomainHighestmax: $subdomainHighestmax");
+print("subdomainSecondhighestmax: $subdomainSecondhighestmax");
+
+
+
+
 
 if(recdata == '1')                            // SubdOMAIN 3/2/5/7
 {
   if(subdomainHighestmax ==  total1)
   {
     level3url1 = 3;
+    print(level3url1);
   }
   else if (subdomainHighestmax ==  total2)
   {
     level3url1 = 2;
+     print(level3url1);
+
   }
   else if (subdomainHighestmax ==  total3)
   {
     level3url1 = 5;
+     print(level3url1);
   }
   else if (subdomainHighestmax ==  total4)
   {
     level3url1 = 7;
+     print(level3url1);
   }
   
 if(subdomainSecondhighestmax ==  total1)
   {
   
     level3url2 = 3;
+     print(level3url2);
   }
   else if (subdomainSecondhighestmax ==  total2)
   {
     level3url2 = 2;
+     print(level3url2);
   }
   else if (subdomainSecondhighestmax ==  total3)
   {
     level3url2 = 5;
+     print(level3url2);
   }
   else if (subdomainSecondhighestmax ==  total4)
   {
     level3url2 = 7;
+     print(level3url2);
   }
 
 
@@ -200,88 +223,96 @@ else
    if(subdomainHighestmax ==  total1)
   {
     level3url1 = 10;
+    print(level3url1);
     
   }
   else if (subdomainHighestmax ==  total2)
   {
     level3url1 = 9;
+    print(level3url1);
   }
   else if (subdomainHighestmax ==  total3)
   {
     level3url1 = 11;
+    print(level3url1);
   }
   else if (subdomainHighestmax ==  total4)
   {
     level3url1 = 13;
+    print(level3url1);
   }
   
 if(subdomainSecondhighestmax ==  total1)
   {
   
     level3url2 = 10;
+     print(level3url2);
   }
   else if (subdomainSecondhighestmax ==  total2)
   {
     level3url2 = 9;
+    print(level3url2);
   }
   else if (subdomainSecondhighestmax ==  total3)
   {
     level3url2 = 11;
+    print(level3url2);
   }
   else if (subdomainSecondhighestmax ==  total4)
   {
     level3url2 = 13;
+    print(level3url2);
   }
 
 }
-print(subdomainHighestmax);
-print(subdomainSecondhighestmax);
-print("finaltotalmarks: $finaltotal");
-updatedommarks(subdomainHighestmax,level3url1 );
+
+// print(subdomainHighestmax);
+// print(subdomainSecondhighestmax);
+// print("finaltotalmarks: $finaltotal");
+// updatedommarks(subdomainHighestmax.toString(),level3url1.toString() );
 
  //print("finaltotalmarks: $finaltotal");
  //threshold = (20 * 0.70).floor();
 
-//  if(finaltotal > 1)
-//  {
-//     if(recdata == '1')
-//     {
-//        Navigator.push(
-//                      context,
-//                      MaterialPageRoute(builder: (context) => LevelPage(tok: widget.token,level3_1: level3url1,level3_2: level3url2)),
-//      //  ResDomPage(resmarks1: finaltotal,round: "3rd",previousround: "2nd",maximum: recdata,usertokenvar: widget.usertok,),),
-//                    );
-//     }
-//     else
-//     {
-//         Navigator.push(
-//                      context,
-//                      MaterialPageRoute(builder: (context) => LevelPage(tok: widget.token,level3_1: level3url1,level3_2: level3url2)),
-//      //  ResDomPage(resmarks1: finaltotal,round: "3rd",previousround: "2nd",maximum: recdata,usertokenvar: widget.usertok,),),
-//                    );
-//     }
-//   //  Navigator.push(
-//   //                    context,
-//   //                    MaterialPageRoute(builder: (context) => LevelPage(tok: widget.token,level3_1: level3url1,level3_2: level3url2)),
-//   //    //  ResDomPage(resmarks1: finaltotal,round: "3rd",previousround: "2nd",maximum: recdata,usertokenvar: widget.usertok,),),
-//   //                  );
-//  }
-//  else
-//  {  
-//     if(recdata == '1')
-//     {
-//        Navigator.push(
-//                      context,
-//                      MaterialPageRoute(builder: (context) =>HomePage1(maxdomain: 2.toString(),token: widget.token,)),
-//                    );
-//     }
-//      else{
-//         Navigator.push(
-//                      context,
-//                      MaterialPageRoute(builder: (context) =>HomePage1(maxdomain: 1.toString(),token: widget.token)),
-//                    );
-//      }
-//  }
+ if(finaltotal > 1)
+ {
+    if(recdata == '1')
+
+    {
+       updatedommarks(subdomainHighestmax.toString(),recdata.toString() );
+       Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (context) => LevelPage(tok: widget.token,level3_1: level3url1.toString(),level3_2: level3url2.toString())),
+     //  ResDomPage(resmarks1: finaltotal,round: "3rd",previousround: "2nd",maximum: recdata,usertokenvar: widget.usertok,),),
+                   );
+    }
+    else
+    {
+        updatedommarks(subdomainHighestmax.toString(),recdata.toString() );
+        Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (context) => LevelPage(tok: widget.token,level3_1: level3url1.toString(),level3_2: level3url2.toString())),
+     //  ResDomPage(resmarks1: finaltotal,round: "3rd",previousround: "2nd",maximum: recdata,usertokenvar: widget.usertok,),),
+                   );
+    }
+ 
+ }
+ else
+ {  
+    if(recdata == '1')
+    {
+       Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (context) =>HomePage1(maxdomain: 2.toString(),token: widget.token,)),
+                   );
+    }
+     else{
+        Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (context) =>HomePage1(maxdomain: 1.toString(),token: widget.token)),
+                   );
+     }
+ }
   
 
   

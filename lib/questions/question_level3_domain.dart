@@ -35,7 +35,7 @@ class _LevelPageState extends State<LevelPage> {
   
 
   Future<void> fetchQuestions()async{
-    var res = await http.get("http://harshraj.pythonanywhere.com/user/level3/${widget.level3_1.toString()}/${widget.level3_2.toString()}/");
+    var res = await http.get("http://harshraj.pythonanywhere.com/user/level3/${widget.level3_1}/${widget.level3_2}/");
     var decRes = jsonDecode(utf8.decode(res.bodyBytes));
     print(decRes);
     _level = Level.fromJson(decRes);
@@ -95,22 +95,22 @@ class _LevelPageState extends State<LevelPage> {
   {                                                                     
     finaltotal += subdomaintotal[i];
   }
- double rating = ((finaltotal/totalquizes) * 5); 
+ double rating = ((finaltotal/20) * 5); 
 
  print(finaltotal);
-                                                                      // LOGIC IS WRONG HAVE TO CHANGE LATER
+                                                                   
   
   if(total1 > total2)
   {
      Navigator.push(
                      context,
-                     MaterialPageRoute(builder: (context) => ResDomPage(resmarks1: total1,previousround: "3rd",maximum: 1.toString(),token: widget.tok, ),),
+                     MaterialPageRoute(builder: (context) => ResDomPage(resmarks1: total1,previousround: "3rd",maximum:widget.level3_1.toString(),token: widget.tok,rate: rating.toString(), ),),
                    );
   }
   else{
     Navigator.push(
                      context,
-                     MaterialPageRoute(builder: (context) => ResDomPage(resmarks1: total2,previousround: "3rd",maximum: 2.toString(),token:widget.tok),),
+                     MaterialPageRoute(builder: (context) => ResDomPage(resmarks1: total2,previousround: "3rd",maximum: widget.level3_2,token:widget.tok,rate: rating.toString()),),
                    );
 
   }
@@ -126,10 +126,11 @@ recordmarks(String domaininfo, b, questionid)
      
      j= globalmarks.indexOf(questionid);
      
-       if(domaininfo == widget.level3_1 )
+       if(domaininfo == widget.level3_1.toString() )
                  {
                   mark1.removeAt(j);      
                    mark1.toList();
+
                    mark1.insert(j, "${b}");
                    print(mark1);
                    print("lIST 1");
@@ -270,7 +271,7 @@ recordmarks(String domaininfo, b, questionid)
                   
                    RadioButtonGroup(
                    labels:data[i].questionDomain.map((child) => child.answerText).toList(),
-                   onChange: (label, index) =>  recordmarks("${data[i].questionDomain[index].fromDomain}","${data[i].questionDomain[index].weightage}","${data[i].id}")
+                   onChange: (label, index) =>  recordmarks(data[i].questionDomain[index].subDomain.toString(),data[i].questionDomain[index].weightage.toString(),data[i].id.toString()),
                   // print("${questionList[i].question[index].weightage} : ${questionList[i].id}"),
                    //onSelected: (String selected) =>  AnswerWidget(questionList.length,questionList,questionList[i].question,questionList[i].question[0].answerText,questionList[i].question[0].weightage,0,questionList[i].question[0].fromDomain,mark1,mark2,checkquestansid,total1,widget.usertokvar,overallgentotal)
                    ),
