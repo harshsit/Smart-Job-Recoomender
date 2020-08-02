@@ -12,9 +12,9 @@ import 'package:flutter_app/view/whatson_chatbot.dart';
 import 'package:flutter_app/view/dashboard.dart';
 import 'package:flutter_app/view/profile.dart';
 import 'package:flutter_app/view/Root.dart';
-import 'package:flutter_app/view/Sidenavigation/sidebar/sidebar_layout.dart';
+//import 'package:flutter_app/view/Sidenavigation/sidebar/sidebar_layout.dart';
 import 'package:flutter_app/view/Animation/fade_animation.dart';
-import 'package:flutter_app/view/splash.dart';
+//import 'package:flutter_app/view/splash.dart';
 import 'package:flutter_app/Courses/QuizStartCards.dart';
 import 'view/profile.dart';
 
