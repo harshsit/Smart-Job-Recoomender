@@ -1,26 +1,24 @@
 import 'dart:ffi';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter_app/results/finalresult.dart';
-import 'package:flutter_app/questions/general_question.dart';
+
 import 'package:flutter_app/view/login.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/view/experiment_homepage.dart';
+
 import 'package:flutter_app/view/splash.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_app/view/whatson_chatbot.dart';
 import 'package:flutter_app/view/dashboard.dart';
 import 'package:flutter_app/view/profile.dart';
-import 'package:flutter_app/view/Root.dart';
-//import 'package:flutter_app/view/Sidenavigation/sidebar/sidebar_layout.dart';
+
 import 'package:flutter_app/view/Animation/fade_animation.dart';
-//import 'package:flutter_app/view/splash.dart';
-import 'package:flutter_app/Courses/QuizStartCards.dart';
+
+
 import 'view/profile.dart';
 
 import 'package:flutter_app/view/viewProfile.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-//import 'view/profile.dart';
+
 
 
 void main() => runApp(MyApp());
@@ -271,39 +269,47 @@ Future<void> profileverify() async {
             ),
             new Divider(),
             new ListTile(
-              title: new Text("Profile"),
-              trailing: new Icon(Icons.person),
-              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                builder: (BuildContext context) => //ProfilePage(),
-               ProfilePage(subdomain: widget.subdom,tok: "${widget.usertok}",),
-              )),
+              title: new Text("Made By Technocrats"),
+              //trailing: new Icon(Icons.),
+              // onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+              //   builder: (BuildContext context) => //ProfilePage(),
+              //  ProfilePage(subdomain: widget.subdom,tok: "${widget.usertok}",),
+              // )),
             ),
-            new Divider(),
-            new ListTile(
-              title: new Text("Job Recommendation Quiz " ),
-              trailing: new Icon(Icons.question_answer),
-              subtitle: Text("20 mins"),
+            // new ListTile(
+            //   title: new Text("Profile"),
+            //   trailing: new Icon(Icons.person),
+            //   onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+            //     builder: (BuildContext context) => //ProfilePage(),
+            //    ProfilePage(subdomain: widget.subdom,tok: "${widget.usertok}",),
+            //   )),
+            // ),
+            // new Divider(),
+            // new ListTile(
+            //   title: new Text("Job Recommendation Quiz " ),
+            //   trailing: new Icon(Icons.question_answer),
+            //   subtitle: Text("20 mins"),
 
-              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                builder: (BuildContext context) => QuizStartPage(),// HomePage(usertokvar: "${widget.usertok}",),
-              )),
-            ),
-            new Divider(),
-            new ListTile(
-              title: new Text("FAQ \n Under Progress"),
-              trailing: new Icon(Icons.reorder),
-              // onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-              //   builder: (BuildContext context) => ItemReviewsPage(),
-              // )),
-            ),
-             new Divider(),
-            new ListTile(
-              title: new Text("Feedback(IN PROGRESS)"),
-              trailing: new Icon(Icons.rate_review),
-              // onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-              //   builder: (BuildContext context) => ItemReviewsPage(),
-              // )),
-            ),
+            //   onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+            //     builder: (BuildContext context) => QuizStartPage(),// HomePage(usertokvar: "${widget.usertok}",),
+            //   )),
+            // ),
+            // new Divider(),
+            // new ListTile(
+            //   title: new Text("FAQ \n Under Progress"),
+            //   trailing: new Icon(Icons.reorder),
+            //   // onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+            //   //   builder: (BuildContext context) => ItemReviewsPage(),
+            //   // )),
+            // ),
+            //  new Divider(),
+            // new ListTile(
+            //   title: new Text("Feedback(IN PROGRESS)"),
+            //   trailing: new Icon(Icons.rate_review),
+            //   // onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+            //   //   builder: (BuildContext context) => ItemReviewsPage(),
+            //   // )),
+            // ),
            
             
 

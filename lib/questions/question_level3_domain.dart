@@ -143,14 +143,14 @@ class _LevelPageState extends State<LevelPage> {
    // updateresultdetails(a, widget.level2max.toString(), widget.level2secondmax.toString(), total1, total2);
      Navigator.push(
                      context,
-                     MaterialPageRoute(builder: (context) => ResDomPage(resmarks1: total1,maximum:widget.level3_1.toString(),token: widget.tok,rate: rating.toString(),roundoneT: widget.level1max,roundeoneM: widget.level1smax, roundtwodom: widget.level3_1,roundtwosdom: widget.level3_2,roundtwoHigh: widget.level2max,roundtwoLow: widget.level2secondmax,roundthreeHigh: total1.toString(),roundthreeLow: total2.toString(), ),),
+                     MaterialPageRoute(builder: (context) => ResDomPage(resmarks1: total1,maximum:widget.level3_1.toString(),token: widget.tok,rate: rating.toString(),roundoneT: widget.level1max,roundeoneM: widget.level1smax, roundtwodom: widget.level3_1,roundtwosdom: widget.level3_2,roundtwoHigh: widget.level2max,roundtwoLow: widget.level2secondmax,roundthreeHigh: total1,roundthreeLow: total2, ),),
                    );
   }
   else{
   //  updateresultdetails(a,widget.level2max.toString(), widget.level2secondmax.toString(), total2.toString(), total1.toString());
     Navigator.push(
                      context,
-                     MaterialPageRoute(builder: (context) => ResDomPage(resmarks1: total2,maximum: widget.level3_2,token:widget.tok,rate: rating.toString(),roundoneT: widget.level1max,roundeoneM: widget.level1smax, roundtwodom: widget.level3_1,roundtwosdom: widget.level3_2,roundtwoHigh: widget.level2max,roundtwoLow: widget.level2secondmax,roundthreeHigh: total2.toString(),roundthreeLow: total1.toString(),),),
+                     MaterialPageRoute(builder: (context) => ResDomPage(resmarks1: total2,maximum: widget.level3_2,token:widget.tok,rate: rating.toString(),roundoneT: widget.level1max,roundeoneM: widget.level1smax, roundtwodom: widget.level3_1,roundtwosdom: widget.level3_2,roundtwoHigh: widget.level2max,roundtwoLow: widget.level2secondmax,roundthreeHigh: total2,roundthreeLow: total1,),),
                    );
 
   }

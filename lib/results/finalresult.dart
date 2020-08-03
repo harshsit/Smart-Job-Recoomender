@@ -22,8 +22,8 @@ final String roundtwodom;
 final String roundtwosdom;
 final String roundtwoHigh;
 final String roundtwoLow;
-final String roundthreeHigh;
-final String roundthreeLow;
+final int roundthreeHigh;
+final int roundthreeLow;
 
 
   _ResDomPageState createState() => _ResDomPageState();
@@ -32,11 +32,13 @@ final String roundthreeLow;
 class _ResDomPageState extends State<ResDomPage> {
 
 String recommended;
-
+String recomjob;
   
   @override
   void initState() {  
     updatesubdommarks(widget.resmarks1.toString());
+    updateratingmmarks(widget.rate.toString());
+    
     detailprint();
   super.initState();    
   }
@@ -67,14 +69,52 @@ String recommended;
 
 Future<void> detailprint()
 {
-  print(widget.roundoneT);
-  print(widget.roundeoneM);
-  print(widget.roundtwodom);
-  print(widget.roundtwosdom);
-  print(widget.roundtwoHigh);
-  print(widget.roundtwoLow);
-  print(widget.roundthreeHigh);
-  print(widget.roundthreeLow);
+
+
+  print(widget.maximum);
+
+if(widget.maximum == '2')
+{
+  recomjob = "Web Development";
+}
+else if(widget.maximum == '3')
+{
+  recomjob = "Android Development";
+
+}
+else if(widget.maximum == '5')
+{
+  recomjob = "Software Development";
+}
+else if(widget.maximum == '7')
+{
+  recomjob = "Data Science";
+}
+else if(widget.maximum == '9')
+{
+  recomjob = "Market Research and Analysis";
+}
+else if(widget.maximum == '10')
+{
+  recomjob = "Public Relations";
+}
+else if(widget.maximum == '11')
+{
+  recomjob = "Advertising";
+}
+else if(widget.maximum == '13')
+{
+  recomjob = "Digital Marketing";
+}
+  // print(widget.roundtwodom);
+  // print(widget.roundtwosdom);
+  // print(widget.roundtwoHigh);
+  // print(widget.roundtwoLow);
+  // print(widget.roundthreeHigh);
+  // print(widget.roundthreeLow);
+
+
+ 
 }
 
 
@@ -88,18 +128,21 @@ Future<void> detailprint()
      { 
        rater = "put-ratingT";
        param = 'TechRating';
+       recommended = "Technical Jobs";
      }
      else{
        rater = "put-ratingM";
        param = 'MarketRating';
+       recommended = "Marketing jobs";
+       
      }
     String total = b;  
      Map data = {
       param : widget.maximum,
-      'Total':total,
+     // 'Total':total,
        };
        var jsonResponse = null;
-       var response = await http.post("http://harshraj.pythonanywhere.com/candidate/${rater}/", body: data,headers: {HttpHeaders.authorizationHeader:"token 4c136b7dbd75a637a1248db3be44c20a5a20a9ee"});
+       var response = await http.post("http://harshraj.pythonanywhere.com/candidate/${rater}/", body: data,headers: {HttpHeaders.authorizationHeader:"token ${widget.token} "});
        if(response.statusCode == 200)
        {
          jsonResponse = json.decode(response.body);
@@ -151,42 +194,42 @@ Future<void> detailprint()
                     ),
                     SizedBox(height: 20),
                      Text(
-                      'First Round Marks in Technology:  \nSecond Round Marks in Marketing:' ,
+                      'First Round Marks in Technology:${widget.roundoneT} \nSecond Round Marks in Marketing:${widget.roundeoneM}' ,
                       style: TextStyle(
-                          fontSize: 17,
+                          fontSize: 18,
                           fontWeight: FontWeight.w400,
                           color: Colors.black,
                           fontFamily: 'sanserrif.ttf'),
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.start,
                     ),
                     
-                    Text(
-                      'Second Round Marks in : \nSecond Round Marks in  :' ,
-                      style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black,
-                          fontFamily: 'sanserrif.ttf'),
-                      textAlign: TextAlign.center,
-                    ),
-                     Text(
-                      'Third Round Marks in : \nThird Round Marks in  :' ,
-                      style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black,
-                          fontFamily: 'sanserrif.ttf'),
-                      textAlign: TextAlign.center,
-                    ),
+                    // Text(
+                    //   'Second Round Marks in : \nSecond Round Marks  :' ,
+                    //   style: TextStyle(
+                    //       fontSize: 17,
+                    //       fontWeight: FontWeight.w400,
+                    //       color: Colors.black,
+                    //       fontFamily: 'sanserrif.ttf'),
+                    //   textAlign: TextAlign.center,
+                    // ),
+                    //  Text(
+                    //   'Third Round Marks in : \nThird Round Marks in  :' ,
+                    //   style: TextStyle(
+                    //       fontSize: 17,
+                    //       fontWeight: FontWeight.w400,
+                    //       color: Colors.black,
+                    //       fontFamily: 'sanserrif.ttf'),
+                    //   textAlign: TextAlign.center,
+                    // ),
                     SizedBox(height: 20),
                     Text(
-                      'Recommended jobs in  :${widget.maximum}',
+                      'Based on All Quiz you are Recommended jobs in $recommended  in the Subdomain $recomjob',
                       style: TextStyle(
-                          fontSize: 17,
+                          fontSize: 21,
                           fontWeight: FontWeight.w400,
                           color: Colors.black,
                           fontFamily: 'sanserrif.ttf'),
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.centre,
                     ),
 
                   ],
@@ -235,7 +278,7 @@ Future<void> detailprint()
                     padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                     child: Center(
                       child: Text(
-                        " You have completed Quiz",
+                        "Lets Find Your Recomended Jobs",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w500),
                       ),

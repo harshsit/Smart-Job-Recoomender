@@ -49,7 +49,11 @@
    @override
    Widget build(BuildContext context) {
      return Scaffold(
+    
+      
+
        appBar: AppBar(
+         
          title: Text('CareerConnect Chatbot'),
          centerTitle: true,
          actions: <Widget>[
@@ -66,12 +70,14 @@
            )
          ],
        ),
+       
        body:Container(
       padding: EdgeInsets.symmetric(horizontal: 8),
 
      
       color: Colors.white,
       child: Column(
+        mainAxisAlignment:MainAxisAlignment.end,
         children: <Widget>[
           Row(children: <Widget>[
              Container(
@@ -97,6 +103,7 @@
                  _text != null ? '$_text' : 'Chatbot Response Here',
                 style: TextStyle(
                   color: Colors.white,
+               
                 ),
               ),
             ),
@@ -106,6 +113,7 @@
                  height: .0 ,
 
                ),
+
          Align(alignment: Alignment.bottomCenter,
          child: Row(children: <Widget>[
            
@@ -135,7 +143,12 @@
             onPressed: _callWatsonAssistant,
           ),
          ],),
-         )
+         ),
+          SizedBox(
+                 height: 35.0 ,
+
+               ),
+
          
           
         ],

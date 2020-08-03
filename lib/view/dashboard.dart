@@ -91,7 +91,7 @@ class _Main1PageState extends State<Main1Page>
           _buildTile(
             Padding
             (
-              padding: const EdgeInsets.all(24.0),
+              padding: const EdgeInsets.all(20.0),
               child: Row
               (
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -104,8 +104,8 @@ class _Main1PageState extends State<Main1Page>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>
                     [
-                      Text('Total Recruit Views on Resume', style: TextStyle(color: Colors.blueAccent)),
-                      Text('20', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 34.0))
+                      Text('Companies using CarrerConnect ', style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                     // Text('', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 34.0))
                     ],
                   ),
                     CircleAvatar(
@@ -169,9 +169,9 @@ class _Main1PageState extends State<Main1Page>
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>
                       [
-                        Text('Take Quiz For Results', style: TextStyle(color: Colors.blueAccent,fontWeight: FontWeight.w700,)),
-                        Text('SubDomain: ${x1}', style: TextStyle(color: Colors.blueAccent)),
-                        Text('You are Recommend for:${x1} ', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 15.0))
+                        Text('Find Your Recommended Jobs', style: TextStyle(color: Colors.blueAccent,fontWeight: FontWeight.w700,)),
+                        Text('CarrerConnect Quiz', style: TextStyle(color: Colors.blueAccent)),
+                        Text('Take Quiz Now ', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 15.0))
                       ],
                     ),
                      CircleAvatar(
