@@ -16,9 +16,13 @@ import 'package:grouped_buttons/grouped_buttons.dart';
 import 'package:flutter_app/questions/domain_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 class HomePage1 extends StatefulWidget {
-   HomePage1({Key key, this.maxdomain,this.token}) : super(key: key);
+   HomePage1({Key key, this.maxdomain,this.token,this.roundeoneT,this.roundeoneM  }) : super(key: key);
 final String maxdomain;
 final String token;
+final String roundeoneT;
+final String roundeoneM;
+
+
   
   @override
   _HomePageState1 createState() => _HomePageState1();
@@ -282,7 +286,7 @@ if(subdomainSecondhighestmax ==  total1)
        updatedommarks(subdomainHighestmax.toString(),recdata.toString() );
        Navigator.push(
                      context,
-                     MaterialPageRoute(builder: (context) => LevelPage(tok: widget.token,level3_1: level3url1.toString(),level3_2: level3url2.toString())),
+                     MaterialPageRoute(builder: (context) => LevelPage(tok: widget.token,level3_1: level3url1.toString(),level3_2: level3url2.toString(),level2max: subdomainHighestmax.toString(),level2secondmax: subdomainSecondhighestmax.toString(),level1max: widget.roundeoneT,level1smax: widget.roundeoneM,)),
      //  ResDomPage(resmarks1: finaltotal,round: "3rd",previousround: "2nd",maximum: recdata,usertokenvar: widget.usertok,),),
                    );
     }
@@ -291,7 +295,7 @@ if(subdomainSecondhighestmax ==  total1)
         updatedommarks(subdomainHighestmax.toString(),recdata.toString() );
         Navigator.push(
                      context,
-                     MaterialPageRoute(builder: (context) => LevelPage(tok: widget.token,level3_1: level3url1.toString(),level3_2: level3url2.toString())),
+                     MaterialPageRoute(builder: (context) => LevelPage(tok: widget.token,level3_1: level3url1.toString(),level3_2: level3url2.toString(),)),
      //  ResDomPage(resmarks1: finaltotal,round: "3rd",previousround: "2nd",maximum: recdata,usertokenvar: widget.usertok,),),
                    );
     }

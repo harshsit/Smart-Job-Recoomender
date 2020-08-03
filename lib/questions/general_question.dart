@@ -193,7 +193,7 @@ print("Marketting: $total2");
     updategenmarks(total1,total2);
    Navigator.push(
                      context,
-                     MaterialPageRoute(builder: (context) => HomePage1(maxdomain: max,token: widget.usertokvar,)),
+                     MaterialPageRoute(builder: (context) => HomePage1(maxdomain: max,token: widget.usertokvar,roundeoneT: total1.toString(),roundeoneM: total2.toString(),)),
      //  ResPage(resmarks1: total1,resmarks2:total2,round: "2nd",previousround: "1st",maximum: max,token: widget.tokenvariable,),),
                    );
 

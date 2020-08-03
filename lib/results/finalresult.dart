@@ -11,14 +11,19 @@ import 'package:flutter_app/questions/question_level3_domain_model.dart';
  import 'package:flutter_app/view/dashboard.dart';
  import 'package:flutter_app/main.dart';
 class ResDomPage extends StatefulWidget {
-ResDomPage({Key key, this.resmarks1,this.resmarks2,this.round,this.previousround,this.maximum,this.token,this.rate}) : super(key: key);
+ResDomPage({Key key, this.resmarks1,this.maximum,this.token,this.rate,this.roundoneT,this.roundeoneM,this.roundtwodom,this.roundtwosdom,this.roundtwoHigh,this.roundtwoLow,this.roundthreeHigh,this.roundthreeLow}) : super(key: key);
 final int resmarks1;
-final int resmarks2;
-final String round;
-final String previousround;
 final String maximum;
 final String token;
 final String rate;
+final String roundoneT;
+final String roundeoneM;
+final String roundtwodom;
+final String roundtwosdom;
+final String roundtwoHigh;
+final String roundtwoLow;
+final String roundthreeHigh;
+final String roundthreeLow;
 
 
   _ResDomPageState createState() => _ResDomPageState();
@@ -26,11 +31,13 @@ final String rate;
 
 class _ResDomPageState extends State<ResDomPage> {
 
- 
+String recommended;
+
   
   @override
   void initState() {  
     updatesubdommarks(widget.resmarks1.toString());
+    detailprint();
   super.initState();    
   }
  Future<void> updatesubdommarks(String b) async
@@ -57,6 +64,19 @@ class _ResDomPageState extends State<ResDomPage> {
        print("Error");
 
   }
+
+Future<void> detailprint()
+{
+  print(widget.roundoneT);
+  print(widget.roundeoneM);
+  print(widget.roundtwodom);
+  print(widget.roundtwosdom);
+  print(widget.roundtwoHigh);
+  print(widget.roundtwoLow);
+  print(widget.roundthreeHigh);
+  print(widget.roundthreeLow);
+}
+
 
   Future<void> updateratingmmarks(String b) async
   {  
