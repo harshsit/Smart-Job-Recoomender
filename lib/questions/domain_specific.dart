@@ -409,7 +409,7 @@ recordmarks(String domaininfo, b, questionid)
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: new Text("2nd Round (70% cutoff)",style: TextStyle(color:Colors.white),),
+        title: new Text("2nd Round of Quiz",style: TextStyle(color:Colors.white),),
          actions: <Widget>[
          
           FlatButton(

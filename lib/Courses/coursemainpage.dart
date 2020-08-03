@@ -78,7 +78,7 @@ class _mainPageState extends State<mainPage> {
                         children: <Widget>[
                          courseWidget('Courses', 'Course', 'img1', '${widget.usertok}',false,true, Color(0xffe9eefa), Colors.white),
                           SizedBox(height: 20,),
-                        courseWidget('Blogs', 'Blogs', 'img1', '${widget.usertok}',true,false, Color(0xffe9eefa), Colors.white),
+                         courseWidget('Schemes', 'Government Schemes ', 'img1', '${widget.usertok}',false,false, Color(0xffe9eefa), Colors.white),
                         ],
                       ),
                     ),
@@ -88,9 +88,10 @@ class _mainPageState extends State<mainPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           SizedBox(height: 50,),
-                          courseWidget('Schemes', 'Government Schemes', 'img1', '${widget.usertok}',false,false, Color(0xffe9eefa), Colors.white),
-                          SizedBox(height: 20,),
-                         courseWidget('CarrerConnect Courses', 'Course', 'img1', '${widget.usertok}',false,false, Color(0xffe9eefa), Colors.white),
+                          courseWidget('Blogs', 'Blogs', 'img1', '${widget.usertok}',true,false, Color(0xffe9eefa), Colors.white),
+                         
+                        //   SizedBox(height: 20,),
+                        //  courseWidget('CarrerConnect Courses', 'Course', 'img1', '${widget.usertok}',false,false, Color(0xffe9eefa), Colors.white),
                         ],
                       ),
                     )

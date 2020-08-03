@@ -229,7 +229,7 @@ else if(widget.maximum == '13')
                           fontWeight: FontWeight.w400,
                           color: Colors.black,
                           fontFamily: 'sanserrif.ttf'),
-                      textAlign: TextAlign.centre,
+                      textAlign: TextAlign.center,
                     ),
 
                   ],
